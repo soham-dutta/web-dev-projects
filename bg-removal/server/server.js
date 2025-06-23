@@ -10,8 +10,7 @@ const PORT = process.env.PORT || 4000
 const app = express();
 await connectDB()
 const allowedorigins = [
-  'https://bg-merndevclient.vercel.app/',
-  'https://bg-removal-mern-pearl.vercel.app/'
+  'https://bg-remover-frontend-chi.vercel.app'
 ];
 // Intialize Middlewares
 app.use(express.json())
