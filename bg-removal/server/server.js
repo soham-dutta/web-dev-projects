@@ -9,10 +9,10 @@ import imageRouter from './routes/imageRoutes.js';
 const PORT = process.env.PORT || 4000
 const app = express();
 await connectDB()
-
+const allowedorigins= ['https://bg-merndevclient.vercel.app/'];
 // Intialize Middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({origin:allowedorigins,credentials:true}))
 
 // API routes
 app.use('/api/user',userRouter)
