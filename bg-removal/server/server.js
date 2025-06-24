@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 4000
 const app = express();
 await connectDB()
 const allowedorigins = [
-  'https://bg-remover-frontend-chi.vercel.app'
+  'https://bg-remover-frontend-chi.vercel.app','http://localhost:5177'
 ];
 // Intialize Middlewares
 app.use(express.json())
