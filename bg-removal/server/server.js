@@ -14,9 +14,21 @@ await connectDB()
 // ];
 // Intialize Middlewares
 app.use(express.json())
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://bgremovallllll.vercel.app',
+  'https://your-frontend-domain.vercel.app' // if you plan to deploy frontend too
+];
+
 app.use(cors({
-  origin: "http://localhost:5173",  // or "*" for all
-  methods: ["GET", "POST", "OPTIONS"],
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'OPTIONS'],
   credentials: true
 }));
 
