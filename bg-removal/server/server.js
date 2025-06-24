@@ -9,12 +9,16 @@ import imageRouter from './routes/imageRoutes.js';
 const PORT = process.env.PORT || 4000
 const app = express();
 await connectDB()
-const allowedorigins = [
-  'https://bg-remover-frontend-chi.vercel.app','http://localhost:5177'
-];
+// const allowedorigins = [
+//   'https://bg-remover-frontend-chi.vercel.app','http://localhost:5177'
+// ];
 // Intialize Middlewares
 app.use(express.json())
-app.use(cors({origin:allowedorigins,credentials:true}))
+app.use(cors({
+  origin: "http://localhost:5173",  // or "*" for all
+  methods: ["GET", "POST", "OPTIONS"],
+  credentials: true
+}));
 
 // API routes
 app.use('/api/user',userRouter)
